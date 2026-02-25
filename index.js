@@ -190,3 +190,63 @@
 
 // }
 // console.log(flattenArray(arr))
+
+
+// 12. Remove duplicate elements in given array 
+// let arr=[1,2,3,4,2,1,6];
+// step1:
+// let newArray=[...new Set(arr)];
+
+// step:2
+// function removeDuplicate(arr){
+// let newArray=[];
+
+// for(let i of arr){
+//     if(!newArray.includes(i)){
+//        newArray.push(i)
+//     }
+  
+// }
+// return newArray
+// }
+// console.log(removeDuplicate(arr))
+
+// 13. Find Max element in the array 
+// let arr= [12,21,21,122,-3]
+// step:1
+// console.time()
+// const result= Math.max(...arr)
+// console.log(result)
+// console.timeEnd()
+// step2: \
+// console.time()
+// let max=arr[0]
+// for(let i=1;i<arr.length;i++){
+//  if(arr[i]> max){
+//     max= arr[i];
+//  }
+ 
+// }
+// console.log(max);
+// console.timeEnd()
+
+// freeze
+// let obj= Object.freeze({user:{name:"A"}});
+// obj.user.name="B";
+// console.log(obj)
+// freeze method to shallow copy nexted object properties may change 
+
+//Palindrome without methods
+// let str="madam";
+
+// function strPalindrom(str){
+//     for(let i=0;i<str.length/2;i++){
+//         if(str[i] !== str[str.length-1-i]){
+//             return false
+//         }
+//     }
+//     return true
+// }
+// console.log(strPalindrom(str))
+
+
