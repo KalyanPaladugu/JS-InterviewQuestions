@@ -62,7 +62,7 @@
 // console.log(a); o/p:23 
 // console.log(b);  o/p:23
 
-// if([]){  // empty arra i truthy value
+// if([]){  // empty array i truthy value
 //     console.log(true)
 // }
 
@@ -105,8 +105,89 @@
 
 // console.log('1'- -'1'); o/p:2
 // console.log('1'- +'1'); o/p:0
-// console.log('1'+  -'1')
+//  console.log('1'+  -'1')
 
-const x=[1];
-const y=[2];
+// const x=[1];
+// const y=[2];
 // console.log(x+y) o/p:12 Here type coercion will occur to string
+
+// const x=[1,2];
+// const y="1,2";
+// console.log(x==y); o/p:true, Here type coercion will change x to string
+
+// const x="abc",y ="def";
+// console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nerest nueric type of not NaN
+
+// let arr=[1].push(2); here after adding 2 it will returns the length of the array:2
+// console.log(arr.push(3)) TypeError: arr.push is not a function
+
+// let num=0;
+// console.log(num++);  // o/p:0 return value and increment 
+// console.log(++num); // o/p:2 intial value 1 and preincrement and return 2
+// console.log(num)   //  o/p:2
+
+
+// console.log(data());
+// var data= function(){
+//  return '1'
+// }
+
+// TypeError: data is not a function
+
+// const obj={a:1};
+// // obj={a:3} //TypeError: Assignment to constant variable. const can't re assign values
+// obj.a=12; // but we can modify properties
+// console.log(obj)
+
+// let obj={
+//     a:null,b:undefined
+// }
+// let newObj=JSON.stringify(obj);
+// let newObj1=JSON.parse(newObj)
+// console.log(JSON.stringify(obj)) // while convertion undefined values are removed
+// console.log(newObj1) 
+
+//Remove element from array
+// let arr=[1,2,3,4,5,6,4];
+// let elementIndex = arr.indexOf(2);
+// arr.splice(elementIndex,1);
+// console.log(arr);
+// function removeElement(arr,element){
+//      let elementIndex = arr.indexOf(element);
+
+//      while(elementIndex !== -1){
+//         arr.splice(elementIndex,1);
+//         elementIndex = arr.indexOf(element);
+//      }
+    
+//     return arr
+// }
+
+// console.log(removeElement(arr,4))
+
+// console.log(true+1);  //o/p: 2, through type coercion true will be 1
+// console.log(true+'1'); // o/p: true1, adding boolean to String will become string
+
+// const str="Hello";
+// str.name="Kalyan";
+// console.log(str.name) // o/p :undefined, while try to add propeties to primitive data type 
+// it will create temp obj while execution after execution it will remove it and no error will generate
+
+// const str1="Kalyan";
+// const str2= new String("Kalyan");
+// console.log(typeof(str2))
+// console.log(str1 == str2); //o/p:true, str2 is will create new object by type coercion it will swithc to string
+// console.log(str1===str2); // o/p:false
+
+// console.log(Boolean({}));  o/p:true, empty object is truthy value
+// console.log(Boolean([])); o/p: true, empty array is truthy value
+// console.log(Boolean("")); o/p:false, empty string is falsy value
+// console.log(Boolean(new Boolean(false))) ; o/p:true, new Boolean(false) will return new object
+
+// console.log([] == ![]) o/p:true, ![] is false and left [] will convert to empty String then it is false,false==false => true 
+
+// let obj1={name:"Kalyan"}
+// let obj2=obj1;
+// obj2={};
+// console.log(obj1) 
+// o/p:{name:"Kalyan"}
