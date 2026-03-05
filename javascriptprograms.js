@@ -167,3 +167,88 @@
 // }
 
 // console.log(falttenArray(arr))
+
+
+// console.log("A");
+
+// setTimeout(()=>console.log("B"));
+
+// ["C","D"].forEach((x) => console.log(x))
+// console.log("E")
+
+
+// return array by  id
+// const obj  =[{
+//     key:"Sample 1",
+//     data:"data1",
+// },{
+//     key:"Sample 1",
+//     data:"data1",
+// },{
+//     key:"Sample 3",
+//     data:"data3",
+// },{
+//     key:"Sample 2",
+//     data:"data2",
+// },{
+//     key:"Sample 1",
+//     data:"data1",
+// }
+// ]
+
+// const output={}
+
+// for(let item of  obj){
+//     if(output[item.key]){
+//         output[item.key].push(item)
+//     }
+//     else {
+//         output[item.key] =[item]
+//     }
+// }
+// console.log(output);
+
+//memoize function 
+
+// function memozieOne(fn){
+//     const  cache = new Map();
+
+//     return  function(arg){
+//         if(cache.has(arg)){
+//             console.log("memoize")
+//           return  cache.get(arg)
+//         }
+//         const result= fn(arg)
+//         cache.set(arg,result)
+//         return result
+//     }
+// }
+// const  add =(a) =>{
+    // for(let i=0; i<1000000000; i++) {} // Fake delay
+//     return a*a
+// }
+
+// const memoizedValue= memozieOne(add)
+
+// console.log(memoizedValue(2))
+// console.log(memoizedValue(2))
+
+
+//composition fullfill
+
+// const multiplyBy2 = (x) => x * 2;
+// const add5 = (x) => x + 5;
+
+// // Traditional way (Hard to read)
+// const result = add5(multiplyBy2(10)); // 25
+
+// // Composition way (Clean and modular)
+// // const compose = (...fns) => (x) => fns.reduceRight((val, f) => f(val), x);
+// const compose = (...functions) =>{
+//     return args =>{
+//    return  functions.reduceRight((arg,fn)   => fn(arg),args)
+//     }
+// }
+
+// const multiplyAndAdd = compose(add5, multiplyBy2);
+// console.log(multiplyAndAdd(5)); // 25

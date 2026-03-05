@@ -1,19 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 - Date
 ```
@@ -29,4 +13,30 @@ console.log(date.toLocaleDateString('en-GB'));
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 console.log(date.toLocaleDateString('en-US', options)); 
 // Output: "Tuesday, March 3, 2026"
+```
+
+```
+const formatter = new Intl.DateTimeFormat('en-US', {
+  dateStyle: 'full',
+  timeStyle: 'short'
+});
+
+console.log(formatter.format(new Date()));
+// Output: "Tuesday, March 3, 2026 at 5:04 PM"
+
+```
+- Originally created by Facebook, Open Graph (OG) is a set of rules that tells social media platforms and messaging apps (like WhatsApp, Slack, or LinkedIn) exactly how to display your website when someone shares your link.
+```
+<head>
+  <title>My Awesome App</title>
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.myapp.com/" />
+  <meta property="og:title" content="My Awesome App - Home" />
+  <meta property="og:description" content="The best app for tracking your Redux counter in 2026." />
+  <meta property="og:image" content="https://www.myapp.com/preview-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My Awesome App" />
+</head>
 ```
