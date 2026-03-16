@@ -3,7 +3,6 @@
 //     arguments[1]=12
 //     console.log(arguments)
 //     return x+y
-
 // }
 
 // console.log(demo(3,4))
@@ -31,7 +30,7 @@
 // console.log(compressString("aaabbc"))
 
 // function movingZeros(arr,pos){
-// let pos=0
+// // let pos=0
     
 //     for(let i=0;i<arr.length;i++){
 //         if(arr[i] !==0){
@@ -44,6 +43,47 @@
 //     return arr
 // }
 
+// function movingZeros(arr){
+//     let lastNonZeroIndex=0;
+//     // Step 1: Move all non-zero elements to the front
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i] !==0){
+//             arr[lastNonZeroIndex] =arr[i];
+//             lastNonZeroIndex++;
+//         }
+//     }
+//     // Step 2: Fill the remaining positions with zeros
+//     for(let i=lastNonZeroIndex;i<arr.length;i++){
+//         arr[i]=0
+//     }
+    
+//     return arr
+    
+    
+// }
+
+// const moveZeros = (arr) => {
+//   const nonZeros = arr.filter(num => num !== 0);
+//   const zeros = arr.filter(num => num === 0);
+//   return [...nonZeros, ...zeros];
+// };
+
+// const nums = [0, 5, 0, 2, 0, 9];
+// console.log(moveZeros(nums)); // [5, 2, 9, 0, 0, 0]
+
+// "Two-Pointer" Swap (The Senior Way)
+// const moveZeros = (arr) => {
+//   let j = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== 0) {
+//       // Swap elements
+//       [arr[i], arr[j]] = [arr[j], arr[i]];
+//       j++;
+//     }
+//   }
+//   return arr;
+// };
+// console.log(movingZeros([0,20,10,2,0,2]))
 // console.log(movingZeros([0,20,10,2,0,2],0))
 
 //firstpeakelement
@@ -56,7 +96,7 @@
 //     }
 // }
 
-// console.log(firstPeakElement([1,1,5,1]))
+// console.log(firstPeakElement([1,3,1,5,1]))
 
 // second larget number 
 // function secondLarget(arr){
@@ -77,7 +117,7 @@
 // }
 // console.log(secondLarget([1,2,4,3,,6]));
 
-// palindrom withour predefined methods
+// palindrom without predefined methods
 
 // function strPal(str){
 //     let left=0;
@@ -94,7 +134,7 @@
 
 // console.log(strPal("mdam"))
 
-//longest ord in given string 
+//longest word in given string 
 
 // function longestWord(str){
 
@@ -116,6 +156,9 @@
 // }
 // console.log(longestWord("I am kalyana paladugu"))
 
+// const arr=["as","Asds","asdsaddadad","sasad"];
+// let re=arr.sort((a,b) => b.length-a.length)
+// console.log(re[0]);
 
 //count number of vowels in a string
 
@@ -180,7 +223,7 @@
 // return array by  id
 // const obj  =[{
 //     key:"Sample 1",
-//     data:"data1",
+//     data:"data2",
 // },{
 //     key:"Sample 1",
 //     data:"data1",
@@ -192,7 +235,7 @@
 //     data:"data2",
 // },{
 //     key:"Sample 1",
-//     data:"data1",
+//     data:"data3",
 // }
 // ]
 
@@ -252,3 +295,18 @@
 
 // const multiplyAndAdd = compose(add5, multiplyBy2);
 // console.log(multiplyAndAdd(5)); // 25
+
+//Array Chunking
+
+// const arr=[1,2,3,4,5,6,7];
+// size=3;
+// // o/p:[[1,2,3],[4,5,6],[7]]
+// function arrayChunking(arr,size){
+//     let result = [];
+//     for(let i=0;i<=arr.length;i+=size){
+//       result.push(arr.slice(i,i+size));
+//     }
+//     return result
+// }
+
+// console.log(arrayChunking(arr,2))
