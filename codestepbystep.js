@@ -51,7 +51,7 @@
 
 // o/p: Number,Number undefined, number
 
-// //Missing a Number
+//Missing a Number
 // let arr=[1,2,4,5];
 // let n=arr.length+1;
 // let expectedSum=n*(n+1)/2;
@@ -68,16 +68,27 @@
 // let max=Math.max(...arr);
 // let numSet= new Set(arr);
 // for(let i=1;i<=max;i++){
-// if(!numSet.has(i)){
+// if(!numSet.includes(i)){
 //     missingNumers.push(i)
 // }
 
 // }
 // console.log(missingNumers)
 
+// let arr=[1,2,4,5,9];
+// let missingNumers=[];
+// let max=Math.max(...arr);
+// for(let i=1;i<=max;i++){
+// if(!arr.includes(i)){
+//     missingNumers.push(i)
+// }
+// }
+
+// console.log(missingNumers)
+
 // remove empty values
 // let arr=[1,2,4,53,46,3,,,,,,3,,2,,1]
-// // console.log(arr.filter(Boolean))
+// console.log(arr.filter(Boolean))
 // let newArr=arr.filter((item) => item != false );
 // console.log(newArr)
 

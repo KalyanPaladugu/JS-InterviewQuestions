@@ -25,7 +25,7 @@
 // const re=createUser();
 // console.log(re.getName());
 
-// 3. count frequect of element in array
+// 3. count frequency of element in array
 
 // step:1
 // let str="asdfsa";
@@ -117,7 +117,21 @@
 // let re= string1.split(" ").reverse().join(" ");
 // console.log(re)
 
-// 8. separate event numbers from the given array 
+//reverse of a string without using predefined methods
+// let str = "asdfg";
+
+// function reverseString(str) {
+//     let reverseStr = "";
+//     // Change: Loop runs as long as i is 0 or higher
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         reverseStr += str[i];
+//     }
+//     return reverseStr;
+// }
+
+// console.log(reverseString(str)); // "gfdsa"
+
+// 8. separate even numbers from the given array 
 // let arr=[1,2,3,4,5,6,7];
 // step1:
 // let re= arr.filter(n => n%2===0);
@@ -230,6 +244,20 @@
 // console.log(max);
 // console.timeEnd()
 
+// let arr= [1,2,213,,12]
+
+// function maxElement(arr){
+//     let max=arr[0];
+//     for(let i of arr){
+//         if(i>max){
+//             max=i
+//         }
+//     }
+//     return max
+    
+// }
+// console.log(maxElement(arr))
+
 // freeze
 // let obj= Object.freeze({user:{name:"A"}});
 // obj.user.name="B";
@@ -248,5 +276,21 @@
 //     return true
 // }
 // console.log(strPalindrom(str))
+
+// function checkPalindrome(str) {
+//     let left = 0;
+//     let right = str.length - 1;
+
+//     while (left < right) {
+//         if (str[left] !== str[right]) {
+//             return false; // Not a palindrome
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+
+// console.log(checkPalindrome("racecar")); // true
 
 

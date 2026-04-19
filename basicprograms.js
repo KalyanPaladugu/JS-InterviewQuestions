@@ -1,15 +1,32 @@
 // let string1="HellowWorld";
-// console.log(string1.substring(5,1))
+// console.log(string1.substring(1,5))
 
 // let arr=[20,1,3];
 // console.log(arr.sort());
 // o/p:[ 1, 20, 3 ] sort() converts to string lexicographically then order is start caharacter with 1,2,3..
 
+// let arr=[20,1,3];
+// function sortingArray(arr){
+    
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr.length-i-1;j++){
+//             if(arr[j]>arr[j+1]){
+//             [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+//             }
+//         }
+        
+//     }
+//     return arr
+// }
+
+// console.log(sortingArray(arr))
+
+
 
 // var arr1=[1,2];
 // var arr2=arr1.slice();
 // arr2[0]=40
-// console.log(arr1)
+// console.log(arr2)
 
 // console.log(1+2+'3');
 // console.log('1'+2+3);
@@ -45,7 +62,7 @@
 
 
 // console.log(5 && 1); o/p:1  && will return last truthy value
-// console.log(5 || 1); o/p:5  && will return first truthy value
+// console.log(5 || 1); o/p:5  || will return first truthy value
 
 // console.log(false || null || "Hello");  || will return first truthy value o/p:Hello
 // console.log(false && null && "Hello");  && will return first falsy value
@@ -90,7 +107,7 @@
 // console.log(!"Sai")  0/p:false /
 
 // console.log([]+[])  o/p:""
-// console.log([1]+[]) o/P: "1"+""
+// console.log([1]+[]) o/P: "1"
 // console.log([1]+"abc") o/p:1abc
 
 // function getAge(...args){
@@ -116,7 +133,7 @@
 // console.log(x==y); o/p:true, Here type coercion will change x to string
 
 // const x="abc",y ="def";
-// console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nerest nueric type of not NaN
+// console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nearest nueric type of not NaN
 
 // let arr=[1].push(2); here after adding 2 it will returns the length of the array:2
 // console.log(arr.push(3)) TypeError: arr.push is not a function
@@ -176,7 +193,7 @@
 // const str1="Kalyan";
 // const str2= new String("Kalyan");
 // console.log(typeof(str2))
-// console.log(str1 == str2); //o/p:true, str2 is will create new object by type coercion it will swithc to string
+// console.log(str1 == str2); //o/p:true, str2 is will create new object by type coercion it will switch to string
 // console.log(str1===str2); // o/p:false
 
 // console.log(Boolean({}));  o/p:true, empty object is truthy value
@@ -188,6 +205,23 @@
 
 // let obj1={name:"Kalyan"}
 // let obj2=obj1;
-// obj2={};
-// console.log(obj1) 
-// o/p:{name:"Kalyan"}
+// obj2={}; // here we are reassigning obj2 to new object so obj1 will not change
+// console.log(obj1) ;
+// console.log(obj2) ;
+// let a=3;
+// let b=a;
+// b=5;
+// console.log(a);
+// console.log(b);
+// let arr1=[3];
+// let arr2=arr1;
+// arr2=[5];
+// console.log(arr1);
+// console.log(arr2);
+// let arr1 = [3];
+// let arr2 = arr1;
+
+// arr2[0] = 5; // Modifying the content at the shared address
+
+// console.log(arr1); // [5]
+// console.log(arr2); // [5]

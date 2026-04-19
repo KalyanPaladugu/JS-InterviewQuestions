@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.greet = function() {
+        console.log("Hello, my name is " + this.name);
+    };
+    const person1 = new Person("Alice");
+    const person2 = new Person("Bob");
+    person1.greet(); // Output: Hello, my name is Alice
+    person2.greet(); // Output: Hello, my name is Bob
+
+    // prototype for array 
+    let employees=['Alice', 'Bob', 'Charlie'];
+    let students=['Dave', 'Eve', 'Frank'];
+    Array.prototype.getFirstCandidate = function() {
+        return this[0];
+    };
+    console.log(employees.getFirstCandidate());   // Output: Alice
+    console.log(students.getFirstCandidate());   // Output: Dave
+   
+    // prototype for string
+    let string = "Hello, World!";
+    let string2="Demo1";
+    String.prototype.getReverseString = function() {
+        return this.split('').reverse().join('');
+    };
+    console.log(string.getReverseString()); // Output: !dlroW ,olleH
+    console.log(string2.getReverseString()); // Output: 1omeD
+    </script>
+    <h1>Prototype Demo</h1>
+</body>
+</html>

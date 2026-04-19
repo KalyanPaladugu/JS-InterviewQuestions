@@ -353,3 +353,229 @@ function vowelsCount(str){
 }
 console.log(vowelsCount(str))
 ```
+
+- In JavaScript, call, apply, and bind are used to control the value of this inside a function. This is often called Function Borrowing.
+- Imagine you have a specific object, and you want to use a function belonging to another object (or a standalone function) on it.
+
+1. `call()`
+The `call()` method invokes a function immediately. It takes the this context as the first argument, followed by the function arguments individually.
+
+```
+const user1 = { name: "Arjun" };
+
+function greet(city, country) {
+    console.log(`Hello, I am ${this.name} from ${city}, ${country}`);
+}
+
+// Arguments are passed one by one
+greet.call(user1, "Mumbai", "India"); 
+// Output: Hello, I am Arjun from Mumbai, India
+```
+2. `apply()`
+
+- The `apply()` method is exactly like `call()`, but it takes the function arguments as an array. This is useful when your data is already in an array format.
+
+```
+const user2 = { name: "Deepa" };
+
+// Arguments are passed as a single array
+greet.apply(user2, ["Bangalore", "India"]); 
+// Output: Hello, I am Deepa from Bangalore, India
+Mnemonic: Apply = Array | Call = Comma-separated.
+```
+
+3. `bind()`
+Unlike the others, `bind()` does not invoke the function immediately. Instead, it returns a new function with the this context permanently locked. You can call this new function whenever you want later.
+
+```
+const user3 = { name: "Vikram" };
+
+// Returns a new function
+const boundGreet = greet.bind(user3, "Chennai", "India");
+
+// Later in the code...
+boundGreet(); 
+// Output: Hello, I am Vikram from Chennai, India
+```
+
+##### Promises
+
+- A Promise in JavaScript is an object that represents the eventual completion (success) or failure of an asynchronous operation and its resulting value
+- A Promise has 3 states:
+    - Pending → Initial state (operation still running)
+    - Fulfilled → Operation completed successfully (resolve)
+    - Rejected → Operation failed (reject)
+
+✅ Why do we use Promises?
+1. Handle asynchronous operations
+API calls
+File reading
+Timers (setTimeout)
+2. Avoid "Callback Hell"
+
+❌ Without Promises:
+```
+doSomething(() => {
+  doNext(() => {
+    doAnother(() => {
+      // messy nested callbacks 😵
+    });
+  });
+});
+```
+- callback hell vs promises
+```
+❌ Callback Hell (Pyramid of Doom)
+getUser(userId, function(err, user) {
+  if (err) {
+    console.error(err);
+  } else {
+    getOrders(user.id, function(err, orders) {
+      if (err) {
+        console.error(err);
+      } else {
+        getOrderDetails(orders[0].id, function(err, details) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log(details);
+          }
+        });
+      }
+    });
+  }
+});
+
+// ✅ Promises (Clean & Linear)
+getUser(userId)
+  .then((user) => getOrders(user.id))
+  .then((orders) => getOrderDetails(orders[0].id))
+  .then((details) => console.log(details))
+  .catch((err) => console.error(err));
+```
+✅ With Promises:
+
+```
+doSomething()
+  .then(doNext)
+  .then(doAnother)
+  .catch(handleError);
+```
+3. Better error handling
+    - Use .catch() instead of multiple error callbacks
+4. Chain operations easily
+    - Perform multiple async steps in sequence
+5. Run parallel tasks
+    - Using Promise.all()
+
+- Drabacks of Promises
+
+1. Callback Hell Still Exists (Promise Hell)
+```
+// ❌ Multiple nested .then() calls
+fetchUser(1)
+  .then(user => {
+    return fetchPosts(user.id)
+      .then(posts => {
+        return fetchComments(posts[0].id)
+          .then(comments => {
+            return { user, posts, comments };
+          });
+      });
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+- Solution:use async/await
+2. Silent Failures
+- Unhandled promise rejections can go unnoticed.
+- javascript// ❌ Error silently ignored
+
+```
+fetchData()
+  .then(data => processData(data))
+  .then(result => saveResult(result));
+  // .catch() missing! Error swallowed
+
+// ✅ Always add error handling
+fetchData()
+  .then(data => processData(data))
+  .then(result => saveResult(result))
+  .catch(error => console.error('Error:', error));
+```
+- Solution: Always add .catch() or use global error handler:
+3. No Cancellation Support
+- Promises can't be cancelled once created.
+=- javascript// ❌ Promise can't be cancelled
+```
+const promise = fetchData(); // Can't stop this!
+
+// ✅ Solution: Use AbortController
+const controller = new AbortController();
+
+fetch('/api/data', { signal: controller.signal })
+  .then(res => res.json())
+  .catch(error => console.error(error));
+
+// Cancel the request
+setTimeout(() => controller.abort(), 1000);
+```
+4. Error Handling Complexity
+
+```
+// ❌ Error only caught if it's in the immediate chain
+fetchData()
+  .then(data => {
+    throw new Error('Processing error');
+  })
+  .then(result => console.log(result)) // Skipped, error thrown above
+  .catch(error => console.error(error)); // Catches it
+
+// ❌ Errors in callbacks might not be caught
+fetchData()
+  .then(data => {
+    setTimeout(() => {
+      throw new Error('Async error');
+    }, 1000);
+  })
+  .catch(error => {
+    console.error(error); // Won't catch setTimeout error!
+  });
+
+// ✅ Use async/await for cleaner error handling
+async function loadData() {
+  try {
+    const data = await fetchData();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+- How to overcome this issue always use asyn/await
+
+```
+// Clean, synchronous-looking code
+async function getUserWithPosts(userId) {
+  try {
+    const user = await fetchUser(userId);
+    const posts = await fetchPosts(user.id);
+    const comments = await fetchComments(posts[0].id);
+    
+    return { user, posts, comments };
+  } catch (error) {
+    console.error('Error loading data:', error);
+    throw error;
+  }
+}
+
+// Usage
+getUserWithPosts(1)
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+
+- `prototype` 
+- In JavaScript, the `prototype` is the mechanism that allows objects to inherit features from one another. Every object in JavaScript has a built-in property called its prototype.
+- we used prototype mainly for efficiency and memory saving
+- instead of creating same function again and again for every object we put it in the prototype so all object can share it
