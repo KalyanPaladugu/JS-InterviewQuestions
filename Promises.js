@@ -165,3 +165,23 @@
 // export function updateToken(newToken) {
 //   api.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
 // }
+
+//common headers passing with fetch and axios while fetching multiple APIs in parallel using Promise.all, Promise.allSettled, Promise
+
+// const token = "your_token_here";
+
+// const config = {
+//   headers: {
+//     Authorization: `Bearer ${token}`
+//   }
+// };
+
+// Promise.all([
+//   axios.get("/api/users", config),
+//   axios.get("/api/products", config),
+//   axios.get("/api/orders", config)
+// ])
+// .then(([users, products, orders]) => {
+//   console.log(users.data, products.data, orders.data);
+// })
+// .catch(err => console.error(err));

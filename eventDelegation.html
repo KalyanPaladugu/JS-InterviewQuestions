@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #parent {
+        border: 1px solid black;
+        padding: 20px;
+        width: 200px;
+    }
+    .child {
+        margin: 5px;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Event Delegation</h1>
+    <div id="parent" onclick="handleParent()">
+        <button class="child" onclick="childOne()">Button 1</button>
+        <br>
+        <button class="child" onclick="childTwo()">Button 2</button>
+        
+
+        <br>
+        <button class="child" onclick="childThree()">Button 3</button>
+    </div>
+    <script>
+        function handleParent(event) {
+            if (event.target && event.target.classList.contains("child")) {
+                // alert(event.target.innerText + " clicked!");
+                let buttonText = event.target.innerText;
+                if (buttonText === "Button 1") {
+                    childOne();
+                } else if (buttonText === "Button 2") {
+                    childTwo();
+                } else if (buttonText === "Button 3") {
+                    childThree();
+                }
+            }
+        }
+        function childOne() {
+            alert("Button 1 is clicked!");
+        }
+
+        function childTwo() {
+            alert("Button 2 is clicked!");
+        }
+
+        function childThree() {
+            alert("Button 3 is clicked!");
+        }
+
+        // document.getElementById("parent").addEventListener("click", function(event) {
+        //     if (event.target && event.target.classList.contains("child")) {
+        //         alert(event.target.innerText + " clicked!");
+        //     }
+        // });
+    </script>
+</body>
+</html>

@@ -579,3 +579,76 @@ getUserWithPosts(1)
 - In JavaScript, the `prototype` is the mechanism that allows objects to inherit features from one another. Every object in JavaScript has a built-in property called its prototype.
 - we used prototype mainly for efficiency and memory saving
 - instead of creating same function again and again for every object we put it in the prototype so all object can share it
+
+- `contructor function`
+- constructor function is a special function used to create multiple objects with the same structure
+- whye constructor fucntion useful
+  - create multiple similar objects
+  - memory optimization with protoptype
+  - construction function are the base of class
+
+- `Map`
+- Map is a built in object use to store key-value pairs
+- keys can be any type (not just strings)
+- Maintains insertion order
+- better performance for frequent add/remove
+- has built in methods
+
+
+- `Event Lopp`
+- The JavaScript Event Loop is what allows JS to handle asynchronous operations (like API calls, timers) even though it is single-threaded.
+
+```
+🧠 Core Idea
+
+JavaScript has:
+
+Call Stack → executes functions (synchronous code)
+Web APIs / Browser APIs → handles async tasks (like setTimeout, fetch)
+Callback Queue / Task Queue → stores callbacks
+Microtask Queue: A high-priority queue for "Microtasks" (e.g., Promises, queueMicrotask).
+Event Loop → moves tasks to the call stack when it’s empty
+```
+- How the Loop Works (The Algorithm)
+  - Execute code in the Call Stack.
+  - When the Stack is empty, check the Microtask Queue.
+  - Execute ALL tasks in the Microtask Queue until it is empty.
+  - Check the Callback Queue.
+  - Pick ONE task from the Callback Queue and move it to the Call Stack.
+  - Go back to step 2.
+- example
+```
+Promise.resolve().then(() => {
+  console.log("A");
+  return Promise.resolve();
+}).then(() => {
+  console.log("B");
+});
+
+Promise.resolve().then(() => {
+  console.log("C");
+});
+
+console.log("D");
+```
+
+- The Three Phases of an Event
+- When an event happens, it moves in a circular path:
+  - Capturing Phase: The event goes from the Window down to the target element.
+  - Target Phase: The event reaches the element you actually clicked.
+  - Bubbling Phase: The event "bubbles" back up from the target to the Window.
+
+```
+  c.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stops the bubble right here at the Child
+    console.log("Child Bubbling");
+});
+
+p.addEventListener('click', () => {
+    console.log("Parent Bubbling"); // This will no longer run if you click the Child
+});
+```
+
+- `Event Delegation`
+- Instead of adding eventlisteners to multiple child elements, we add one event listener to parent element and handle events using event bubbling
+

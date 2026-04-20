@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="grandparent" style="padding: 30px; background: #ffcccc;">
+  Grandparent
+  <div id="parent" style="padding: 30px; background: #ccffcc;">
+    Parent
+    <div id="child" style="padding: 30px; background: #ccccff;">
+      Child (Click Me)
+    </div>
+  </div>
+</div>
+
+<script>
+    const gp = document.querySelector('#grandparent');
+const p = document.querySelector('#parent');
+const c = document.querySelector('#child');
+
+// Default is bubbling (false)
+gp.addEventListener('click', () => console.log("Grandparent Bubbling"));
+p.addEventListener('click', () => { event.stopPropagation();
+    console.log("Parent Bubbling")});
+c.addEventListener('click', () => {event.stopPropagation();
+    console.log("Child Bubbling")});
+
+// Click the Child:
+// Output: 
+// 1. Child Bubbling
+// 2. Parent Bubbling
+// 3. Grandparent Bubbling
+</script>
+</body>
+</html>
