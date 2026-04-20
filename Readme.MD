@@ -652,3 +652,48 @@ p.addEventListener('click', () => {
 - `Event Delegation`
 - Instead of adding eventlisteners to multiple child elements, we add one event listener to parent element and handle events using event bubbling
 
+
+- `Shallow copy` vs `deep copy`
+- Shallow Copy: Copies the top-level properties. If those properties are objects or arrays, it only copies the reference (the memory address). Changes to a nested object in the copy will affect the original.
+- Deep Copy: Copies everything. It recursively climbs through the object and creates entirely new instances of every nested object or array. The copy is 100% independent.
+
+- Shallow Copy Example
+  - You can create shallow copies using the Spread Operator (...) or Object.assign().
+
+```
+const original = { 
+  name: "Laptop", 
+  specs: { RAM: "8GB" } 
+};
+
+// Create a shallow copy
+const shallowCopy = { ...original };
+
+shallowCopy.name = "PC"; // Only changes the copy
+shallowCopy.specs.RAM = "16GB"; // Changes BOTH original and copy!
+
+console.log(original.specs.RAM); // "16GB"
+```
+- Deep Copy Example
+ - To create a deep copy, you need to ensure every nested level is duplicated.
+```
+const original = { name: "Laptop", specs: { RAM: "8GB" } };
+
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.specs.RAM = "32GB"; 
+console.log(original.specs.RAM); // "8GB" (Original is safe!)
+```
+- `Note: This method fails if your object contains functions, Dates, or undefined.`
+- This is a newer, native browser API that handles deep cloning efficiently.
+- const deepCopy = structuredClone(original);
+
+## Comparison Table
+
+| Feature | Shallow Copy | Deep Copy |
+| :--- | :--- | :--- |
+| **Top-level values** | Duplicated | Duplicated |
+| **Nested Objects** | Shared (References) | Duplicated (New instances) |
+| **Performance** | Very Fast | Slower (requires more memory) |
+| **Methods** | `...` Spread, `Object.assign()` | `structuredClone()`, `JSON.parse()`, `_.cloneDeep()` |
+
