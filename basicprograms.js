@@ -133,7 +133,7 @@
 // console.log(x==y); o/p:true, Here type coercion will change x to string
 
 // const x="abc",y ="def";
-// console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nearest nueric type of not NaN
+// console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nearest numeric type of not NaN
 
 // let arr=[1].push(2); here after adding 2 it will returns the length of the array:2
 // console.log(arr.push(3)) TypeError: arr.push is not a function
@@ -225,3 +225,15 @@
 
 // console.log(arr1); // [5]
 // console.log(arr2); // [5]
+
+
+// let a={
+//     value:1,
+//     valueOf(){
+//         return this.value++
+//     }
+// }
+
+// if(a==1 && a==2 ){
+//     console.log("c")
+// }
