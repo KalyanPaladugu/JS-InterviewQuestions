@@ -163,8 +163,8 @@
 //count number of vowels in a string
 
 // function vowelsCount(str){
-// let vowels=['a','e','i','o','u'];
-// let count=0;
+// let vowels=['a','e','i','o','u','A','E','I','O','U'];
+
 // let freq={}
 // for(let i of str){
 //     if(vowels.includes(i)){
@@ -178,7 +178,7 @@
 // return freq
 // }
 
-// console.log(vowelsCount("asedfioaidu"))
+// console.log(vowelsCount("asedfghjklASDFAIOUGHJKL"))
 
 
 // let str="hello";
@@ -253,19 +253,19 @@
 
 //memoize function 
 
-// function memozieOne(fn){
-//     const  cache = new Map();
+function memozieOne(fn){
+    const  cache = new Map();
 
-//     return  function(arg){
-//         if(cache.has(arg)){
-//             console.log("memoize")
-//           return  cache.get(arg)
-//         }
-//         const result= fn(arg)
-//         cache.set(arg,result)
-//         return result
-//     }
-// }
+    return  function(arg){
+        if(cache.has(arg)){
+            console.log("memoize")
+          return  cache.get(arg)
+        }
+        const result= fn(arg)
+        cache.set(arg,result)
+        return result
+    }
+}
 // const  add =(a) =>{
     // for(let i=0; i<1000000000; i++) {} // Fake delay
 //     return a*a

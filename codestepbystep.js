@@ -33,7 +33,7 @@
 
 // console.log(objFromArray(arr1,arr2))
 
-// for(i=0;i<=3;i++){
+// for(i=0;i<3;i++){
 //     setTimeout(()=>{
 //         console.log(i)
 //     },100)
@@ -41,7 +41,7 @@
 
 // function typeChecking(){
 
-//     var a=b=3;
+//     let a=b=3;
 //     console.log(typeof a);
 //     console.log(typeof b)
 // }

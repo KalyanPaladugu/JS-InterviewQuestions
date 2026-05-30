@@ -574,7 +574,10 @@ getUserWithPosts(1)
   .then(data => console.log(data))
   .catch(error => console.error(error));
 ```
-
+- `Promise.all` waits for all promises to resolve successfully. If even a single promise rejects, the entire operation aborts immediately.
+- `Promise.allSettled` waits until every single promise has finished its execution—meaning it has either fully completed (fulfilled) or crashed (rejected). It never short-circuits.
+- `Promise.race` settles as soon as the very first promise finishes, whether that first promise succeeds or fails.
+- `Promise.any` waits for the first successful promise to resolve. It completely ignores rejections unless every single promise in the list fails.
 - `prototype` 
 - In JavaScript, the `prototype` is the mechanism that allows objects to inherit features from one another. Every object in JavaScript has a built-in property called its prototype.
 - we used prototype mainly for efficiency and memory saving
