@@ -17,6 +17,28 @@
 // }
 // console.log(newArray)
 
+
+// function findDuplicates(s){
+//     let temp=new Set()
+//     let duplicateList=new Set();
+    
+//     for(let i of s){
+//         if(temp.has(i)){
+//             duplicateList.add(i)
+//         }
+//         else {
+//           temp.add(i)  
+//         }
+       
+//     }
+//     return Array.from(duplicateList)
+    
+// }
+
+// let s=[1,2,3,2,4,3,5,2,5]
+
+// console.log(findDuplicates(s))
+
 // Create Object by accepting keys from arr1 and values from arr2
 
 // const arr1=['name','age','salary'];
