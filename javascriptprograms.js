@@ -297,7 +297,7 @@ function memozieOne(fn){
 // console.log(multiplyAndAdd(5)); // 25
 
 //Array Chunking
-
+// step1:
 // const arr=[1,2,3,4,5,6,7];
 // size=3;
 // // o/p:[[1,2,3],[4,5,6],[7]]
@@ -309,4 +309,15 @@ function memozieOne(fn){
 //     return result
 // }
 
+// step2:
+
+// function arrayChunking(arr,size){
+//     let result = [];
+//     let index=0;
+//     while(index<arr.length){
+//         result.push(arr.slice(index,index+size));
+//         index+=size
+//     }
+//     return result
+// }
 // console.log(arrayChunking(arr,2))
