@@ -23,10 +23,19 @@
 
 
 
-// var arr1=[1,2];
-// var arr2=arr1.slice();
+// let arr1=[1,2];
+// let arr2=arr1.slice();
 // arr2[0]=40
 // console.log(arr2)
+// console.log(arr1)
+
+
+// let emp={name:"Dinesh",age:23};
+// let emp1={...emp};
+// emp1.name="Kalyan";
+// console.log(emp1)
+// console.log(emp)
+
 
 // console.log(1+2+'3');
 // console.log('1'+2+3);
@@ -40,7 +49,7 @@
 // o/p:true
 
 // console.log(0 || "Hello"); || operator will return rightside value when left side value is 0,"" or false
-// console.log(0 ?? "Hello")  ?? operator will return rightside value when left side value is null or undefined
+// console.log(0 ?? "Hello")  // ?? operator will return rightside value when left side value is null or undefined
 
 // setTimeout((a,b)=>{
 //    console.log (a+b);
@@ -65,7 +74,7 @@
 // console.log(5 || 1); o/p:5  || will return first truthy value
 
 // console.log(false || null || "Hello");  || will return first truthy value o/p:Hello
-// console.log(false && null && "Hello");  && will return first falsy value
+// console.log(false && null && "Hello"); // && will return first falsy value
 
 // console.log(1 && null && "Hello") o/p: null 
 
@@ -83,18 +92,18 @@
 //     console.log(true)
 // }
 
-// console.log("2" > "10");   js engine coverts first character in strings to unicode (50>49)
-// console.log("2" > 10);    js engine coverts 2 to integer
+// console.log("2" > "10");  // js engine coverts first character in strings to unicode (50>49)
+// console.log("2" > 10);   // js engine coverts 2 to integer
 
 // console.log(0.1+0.2 === 0.3); O/P: flase
 
-// console.log(1+false); // boolean values tru converted to 1 and false will be 0
+// console.log(1+false); // boolean values true converted to 1 and false will be 0
 // console.log(1-true);
 // console.log(1-false);
 
 // const arr1=[1,2,3];
 // const str1="1,2,3";
-// console.log(arr1 == str1);  //here arr1 will convert ot strang by .tostring(type coercion)
+// console.log(arr1 === str1);  //here arr1 will convert ot strang by .tostring(type coercion)
 
 // console.log(x); o/p:undefined
 // var x="Hello";
@@ -104,7 +113,7 @@
 // o/p:1,2,32,3,4
 
 // console.log(+true);  o/p:1
-// console.log(!"Sai")  0/p:false /
+// console.log(!"Sai")  0/p:false 
 
 // console.log([]+[])  o/p:""
 // console.log([1]+[]) o/P: "1"
@@ -118,11 +127,15 @@
 
 // let z=1; 
 // y=z= typeof y;
-// console.log(z)
+// console.log(z);  // o/p:undefined, here typeof y will return undefined and assign to z
+
+// let b=3,c=2;
+// let a=c=b;
+// console.log(a,b,c)  // o/p: 3,3,3
 
 // console.log('1'- -'1'); o/p:2
 // console.log('1'- +'1'); o/p:0
-//  console.log('1'+  -'1')
+//  console.log('1'+  -'1');  // o/p:1-1, here -'1' will convert to number and then string concatenation will occur
 
 // const x=[1];
 // const y=[2];
@@ -130,7 +143,7 @@
 
 // const x=[1,2];
 // const y="1,2";
-// console.log(x==y); o/p:true, Here type coercion will change x to string
+// console.log(x==y); //o/p:true, Here type coercion will change x to string
 
 // const x="abc",y ="def";
 // console.log(x+ +y) o/p:abcNAN ; unary operator will convert to nearest numeric type of not NaN

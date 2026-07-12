@@ -234,3 +234,39 @@
 // }
 
 // console.log(isPrime(9))
+
+// function demo(){
+//     let a=b=0;
+//     a++;
+//     return a
+// }
+// console.log(typeof(a));
+// console.log(typeof(b));
+// o/p:  because demo is not ran if it is run then typeof a will
+//  be number and typeof b will be undefined because a is declared 
+// with let and b is declared without var or let which makes it 
+// global variable 
+// and it will be accessible outside the function but a will not 
+// be accessible outside the function because it is declared with let.
+// undefined
+// undefined
+
+// ##### call by value and call by reference
+
+// let a=10;
+// let b=a;
+// b=20;
+// console.log(a,b) //10,20
+
+
+// function updatePrimitive(num) {
+//     num = 100; // Modifying the copy
+//     console.log("Inside function:", num); 
+// }
+
+// let score = 50;
+
+// updatePrimitive(score); 
+// console.log("Outside function:", score);
+
+

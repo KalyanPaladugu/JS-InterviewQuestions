@@ -162,23 +162,23 @@
 
 //count number of vowels in a string
 
-// function vowelsCount(str){
-// let vowels=['a','e','i','o','u','A','E','I','O','U'];
+function vowelsCount(str){
+let vowels=['a','e','i','o','u','A','E','I','O','U'];
 
-// let freq={}
-// for(let i of str){
-//     if(vowels.includes(i)){
-//        if(freq[i]){
-//         freq[i]++
-//        }else {
-//        freq[i]=1
-//        }
-//     }
-// }
-// return freq
-// }
+let freq={}
+for(let i of str){
+    if(vowels.includes(i)){
+       if(freq[i]){
+        freq[i]++
+       }else {
+       freq[i]=1
+       }
+    }
+}
+return freq
+}
 
-// console.log(vowelsCount("asedfghjklASDFAIOUGHJKL"))
+console.log(vowelsCount("asedfghjklASDFAIOUGHJKL"))
 
 
 // let str="hello";

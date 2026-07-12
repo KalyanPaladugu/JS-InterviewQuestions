@@ -1,15 +1,15 @@
 // Promise.all
-// const promise1 = Promise.resolve(3);
-// const promise2 = new Promise((resolve) => setTimeout(() => resolve('foo'), 100));
-// const promise3 = fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json());
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise((resolve,reject) => setTimeout(() => reject('foo'), 100));
+const promise3 = fetch('https://jsonplaceholder.typicode.com/post').then(res => res.json());
 
-// Promise.all([promise1, promise2, promise3])
-//   .then((values) => {
-//     console.log(values); // [3, 'foo', {data}]
-//   })
-//   .catch((error) => {
-//     console.error('At least one promise failed:', error);
-//   });
+Promise.all([promise3, promise2, promise1])
+  .then((values) => {
+    console.log(values); // [3, 'foo', {data}]
+  })
+  .catch((error) => {
+    console.error('At least one promise failed:', error);
+  });
 //   Use case: When you need all results before proceeding (e.g., loading multiple resources).
 
 // 2. Promise.allSettled()

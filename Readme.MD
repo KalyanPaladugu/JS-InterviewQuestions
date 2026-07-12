@@ -700,3 +700,70 @@ console.log(original.specs.RAM); // "8GB" (Original is safe!)
 | **Performance** | Very Fast | Slower (requires more memory) |
 | **Methods** | `...` Spread, `Object.assign()` | `structuredClone()`, `JSON.parse()`, `_.cloneDeep()` |
 
+
+// ##### call by value and call by reference
+```
+let a=10;
+let b=a;
+b=20;
+console.log(a,b) //10,20
+```
+1. Primitives behave like "Call by Value"
+- When you pass a primitive data type (like a Number, String, Boolean, null, or undefined) into a function, JavaScript copies the actual value of the variable into a new memory location for the function parameter.
+- Because it is a brand-new copy, any changes you make to that variable inside the function will not affect the original variable outside.
+
+```
+function updatePrimitive(num) {
+    num = 100; // Modifying the copy
+    console.log("Inside function:", num); 
+}
+
+let score = 50;
+
+updatePrimitive(score); 
+console.log("Outside function:", score);
+
+
+```
+2. Objects behave like "Call by Reference" (Call by Sharing)
+- When you pass an object (like an Object, Array, or Function) into a function, JavaScript copies the value of the reference (the memory address) pointing to that object.
+
+- Because both the original variable and the function parameter are pointing to the exact same spot in memory, modifying a property of that object inside the function will change the original object outside.
+
+```
+function updateObject(player) {
+    player.score = 100; // Modifying a property of the shared object
+    console.log("Inside function:", player.score);
+}
+
+let user = { name: "Alex", score: 50 };
+
+updateObject(user);
+console.log("Outside function:", user.score);
+
+o/p:
+Inside function: 100
+Outside function: 100
+```
+
+⚠️ The Catch: Reassigning an Object
+- This is where the distinction matters. If you completely reassign the object inside the function instead of just changing a property, you break the connection to the original object.
+
+```
+function reassignObject(player) {
+    // Reassigning to a brand new object entirely
+    player = { name: "Sam", score: 999 }; 
+    console.log("Inside function:", player.score);
+}
+
+let user = { name: "Alex", score: 50 };
+
+reassignObject(user);
+console.log("Outside function:", user.score);
+
+o/p:
+Inside function: 999
+Outside function: 50
+```
+- Primitives (Number, String, etc.) $\rightarrow$ Passed by actual value. Modifications inside a function are completely isolated.
+- Objects (Object, Array) $\rightarrow$ Passed by reference value. Mutating properties affects the original; reassigning the variable does not.
