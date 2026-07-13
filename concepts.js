@@ -1,4 +1,4 @@
-// // Map 
+// Map 
 // const data= new Map();
 // data.set('name', 'John');
 // data.set('age', 30);
@@ -14,19 +14,69 @@
 // data.delete(2);
 // console.log(data); // Output: Map(3) { 'name' => 'John', 'age' => 30, true => 'boolean value' }
 
-function throttle(fn,delay){
-    let lastCall=0;
-    return  function(...args){
-        let now= new Date().getTime();
-        if(now-lastCall >=delay){
-            lastCall=now;
-            fn(...args)
-        }
-    }
-}
+// function throttle(fn,delay){
+//     let lastCall=0;
+//     return  function(...args){
+//         let now= new Date().getTime();
+//         if(now-lastCall >=delay){
+//             lastCall=now;
+//             fn(...args)
+//         }
+//     }
+// }
 
-const handleDemo=() =>{
-    console.log('demo')
-}
-const re=throttle(handleDemo,500);
-window.addEventListener("resize", re);
+// const handleDemo=() =>{
+//     console.log('demo')
+// }
+// const re=throttle(handleDemo,500);
+// window.addEventListener("resize", re);
+
+// // Debounce
+// function debounce(fn, delay) {
+//     let timeoutId;
+//     return function(...args) {
+//         clearTimeout(timeoutId);
+//         timeoutId = setTimeout(() => fn(...args), delay);
+//     };
+// }
+
+// const handleDemoDebounce = () => {
+//     console.log('debounced demo');
+// };
+// const debouncedHandleDemo = debounce(handleDemoDebounce, 500);
+// window.addEventListener("resize", debouncedHandleDemo);
+
+
+// // Debounce in react
+// import { useMemo } from "react";
+
+// function debounce(fn, delay) {
+//   let timer;
+
+//   return function (...args) {
+//     clearTimeout(timer);
+
+//     timer = setTimeout(() => {
+//       fn.apply(this, args);
+//     }, delay);
+//   };
+// }
+
+// export default function App() {
+//   const handleSearch = (e) => {
+//     console.log("Searching:", e.target.value);
+//   };
+
+//   const debouncedSearch = useMemo(
+//     () => debounce(handleSearch, 500),
+//     []
+//   );
+
+//   return (
+//     <input
+//       type="text"
+//       placeholder="Search..."
+//       onChange={debouncedSearch}
+//     />
+//   );
+// }

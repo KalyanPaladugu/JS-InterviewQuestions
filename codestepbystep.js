@@ -73,7 +73,7 @@
 
 // o/p: Number,Number undefined, number
 
-//Missing a Number
+// Missing a Number
 // let arr=[1,2,4,5];
 // let n=arr.length+1;
 // let expectedSum=n*(n+1)/2;
@@ -90,7 +90,7 @@
 // let max=Math.max(...arr);
 // let numSet= new Set(arr);
 // for(let i=1;i<=max;i++){
-// if(!numSet.includes(i)){
+// if(!numSet.has(i)){
 //     missingNumers.push(i)
 // }
 

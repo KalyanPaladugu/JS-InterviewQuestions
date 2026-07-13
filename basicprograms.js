@@ -24,14 +24,16 @@
 
 
 // let arr1=[1,2];
-// let arr2=arr1.slice();
+// // let arr2=arr1.slice();
+// let arr2=arr1;
 // arr2[0]=40
 // console.log(arr2)
 // console.log(arr1)
 
 
 // let emp={name:"Dinesh",age:23};
-// let emp1={...emp};
+// let emp1=emp;
+// let emp1={...emp}
 // emp1.name="Kalyan";
 // console.log(emp1)
 // console.log(emp)
